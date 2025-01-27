@@ -22,15 +22,30 @@
 #define A 97
 #define S 115
 #define D 100
-
+#define PXL 50
 
 typedef struct s_vars
 {
+	char	*filename;
 	void	*mlx;
 	void	*win;
 	int		pos_x;
 	int		pos_y;
+	void	*tile;
 }				s_var;
 
-#endif
+typedef struct s_map
+{
+	void	*avatar;
+	void	*avatar2;
+	void	*avatar3;
+	void	*wall;
+	void	*door;
+	void	*floor;
+	void	*water;
+}				t_map;
 
+int		quit(int keycode, s_var *var);
+void	get_image(t_map *map, s_var var);
+
+#endif
