@@ -17,12 +17,15 @@
 # include <stdlib.h>
 # include <stdint.h>
 
+# define BUFFER_SIZE 5
+
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }	t_list;
 
+char		*get_next_line(int fd);
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
 int			ft_isalnum(int c);
@@ -66,5 +69,5 @@ void		ft_lstdelone(t_list *lst, void (*del)(void*));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 void		ft_lstclear(t_list **lst, void (*del)(void*));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-
+char		*ft_freestrjoin(char *s1, char *s2);
 #endif

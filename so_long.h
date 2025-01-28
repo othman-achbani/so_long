@@ -15,6 +15,7 @@
 
 #include "./minilibx-linux/mlx.h"
 #include "./libft/libft.h"
+#include <fcntl.h>
 #include <stdio.h>
 
 #define ESC 65307 
@@ -36,6 +37,7 @@ typedef struct s_vars
 
 typedef struct s_map
 {
+	char	*filename;
 	void	*avatar;
 	void	*avatar2;
 	void	*avatar3;
@@ -43,9 +45,15 @@ typedef struct s_map
 	void	*door;
 	void	*floor;
 	void	*water;
+	char	**tilesmap;
+	char	*buffer;
+	int		x;
+	int		y;
 }				t_map;
 
 int		quit(int keycode, s_var *var);
 void	get_image(t_map *map, s_var var);
+void	check_file(t_map *map);
+
 
 #endif
