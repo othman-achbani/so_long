@@ -18,11 +18,10 @@ void	check_file(t_map *map)
 	int		cmp;
 
 	len = ft_strlen(map->filename);
-	cmp == ft_strncmp(map->filename + (len - 4), ".ber", 5);
-	if (cmp == 0)
+	cmp = ft_strncmp(map->filename + (len - 4), ".ber", 4);
+	if (cmp != 0)
 	{
 		ft_putstr_fd("\033[31m map invalid it should end with .ber\n\033[0m", 2);
 		exit(EXIT_FAILURE);
 	}
 }
-

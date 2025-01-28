@@ -14,23 +14,24 @@
 
 void	get_image(t_map *map, s_var var)
 {
-	int	pixel;
+	int	px;
 
-	pixel = PXL;
-	map->door = mlx_xpm_file_to_image(var.mlx , "./utils_xpm/door.xpm", &pixel , &pixel);
-	map->floor = mlx_xpm_file_to_image(var.mlx , "./utils_xpm/stone_floor.xpm", &pixel, &pixel);
-	map->wall = mlx_xpm_file_to_image(var.mlx , "./utils_xpm/wall.xpm", &pixel , &pixel);
+	px = PXL;
+	map->door = mlx_xpm_file_to_image(var.mlx , "./utils_xpm/door.xpm", &px , &px);
+	map->floor = mlx_xpm_file_to_image(var.mlx , "./utils_xpm/stone_floor.xpm", &px, &px);
+	map->wall = mlx_xpm_file_to_image(var.mlx , "./utils_xpm/wall.xpm", &px , &px);
+	map->coin = mlx_xpm_file_to_image(var.mlx , "./utils_xpm/coin.xpm", &px , &px);
 	player_image(map, var);
 }
 
 void	player_image(t_map *map , s_var var)
 {
-	int	pixel;
+	int	px;
 
-	pixel = PXL;
-	map->avatar = mlx_xpm_file_to_image(var.mlx , "./utils_xpm/avatarmv1.xpm", &pixel , &pixel);
-	map->avatar2 = mlx_xpm_file_to_image(var.mlx , "./utils_xpm/avatarmv2.xpm", &pixel , &pixel);
-	map->avatar3 = mlx_xpm_file_to_image(var.mlx , "./utils_xpm/avatarmv3.xpm", &pixel , &pixel);
+	px = PXL;
+	map->avatar = mlx_xpm_file_to_image(var.mlx , "./utils_xpm/avatarmv1.xpm", &px , &px);
+	map->avatar2 = mlx_xpm_file_to_image(var.mlx , "./utils_xpm/avatarmv2.xpm", &px , &px);
+	map->avatar3 = mlx_xpm_file_to_image(var.mlx , "./utils_xpm/avatarmv3.xpm", &px , &px);
 	
 }
 
@@ -39,17 +40,25 @@ void	get_tilesmap(t_map *map)
 	char	*line;
 	int		fd;
 
+	
 	map->y = 0;
-	line = "";
+	map->buffer = "";
 	fd = open(map->filename , O_RDONLY);
-	if (!fd)
-		return(ft_putstr_fd("can't open file", 2), exit(EXIT_FAILURE));
+	if (fd == -1)
+	{
+		ft_putstr_fd("can't open file\n", 2);
+		exit(EXIT_FAILURE);
+	}
+	line = get_next_line(fd);
 	while (line)
 	{
-		line = get_next_line(fd);
-		map->buffer = ft_freestrjoin(line, map->buffer);
+		map->x = ft_strlen(line) - 1;
+		map->buffer = ft_strjoin(map->buffer, line);
 		map->y += 1;
+		free(line);
+		line = get_next_line(fd);
 	}
-	map->tilesmap = ft_split(map->buffer , "\n");
+	map->tilesmap = ft_split(map->buffer , '\n');
 	free(map->buffer);
+	close(fd);
 }

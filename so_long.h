@@ -17,6 +17,7 @@
 #include "./libft/libft.h"
 #include <fcntl.h>
 #include <stdio.h>
+#include <string.h>
 
 #define ESC 65307 
 #define W 119
@@ -47,13 +48,18 @@ typedef struct s_map
 	void	*water;
 	char	**tilesmap;
 	char	*buffer;
+	void	*coin;
 	int		x;
 	int		y;
 }				t_map;
 
+void	check_file(t_map *map);
 int		quit(int keycode, s_var *var);
 void	get_image(t_map *map, s_var var);
-void	check_file(t_map *map);
+void	pass_the_map(t_map *map , s_var var);
+void	get_tilesmap(t_map *map);
+void	map_checker(t_map *map , char *filename);
+void	player_image(t_map *map , s_var var);
 
 
 #endif
