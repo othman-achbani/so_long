@@ -21,13 +21,13 @@ char	*ft_read_add(char *str, int fd)
 	if (!buffer)
 		return (free(str), NULL);
 	readed = 1;
-	while (!ft_strchr(str, '\n') && readed)
+	while (!ft_strchrget(str, '\n') && readed)
 	{
 		readed = read(fd, buffer, BUFFER_SIZE);
 		if (readed == -1)
 			return (free(buffer), free(str), NULL);
 		buffer[readed] = '\0';
-		str = ft_freestrjoin(str, buffer);
+		str = ft_strjoinget(str, buffer);
 		if (!str)
 			return (free(str), NULL);
 	}
@@ -75,7 +75,7 @@ char	*ft_remaining(char *str)
 		clear++;
 	if (!str[clear])
 		return (free(str), NULL);
-	buffer = malloc(ft_strlen(str) - clear + 1);
+	buffer = malloc(ft_strlenget(str) - clear + 1);
 	if (!buffer)
 		return (free(str), NULL);
 	clear++;
@@ -106,27 +106,27 @@ char	*get_next_line(int fd)
 	line = ft_remaining(line);
 	return (save);
 }
-/*#include <fcntl.h>
-#include <stdio.h>
+// #include <fcntl.h>
+// #include <stdio.h>
 
-int	main(void)
-{
-	int	fd;
-    char *line;
+// int	main(void)
+// {
+// 	int	fd;
+//     char *line;
 
-    fd = open("test.txt",O_RDONLY);
+//     fd = open("test.txt",O_RDONLY);
     
-    if (fd == -1)
-    {
-        printf("Error opening file\n");
-        return (1);
-    }
+//     if (fd == -1)
+//     {
+//         printf("Error opening file\n");
+//         return (1);
+//     }
     
-    while ((line = get_next_line(fd)) != NULL)
-    {
-        printf("%s", line);
-        free(line);
-    }
-    close(fd);
-    return (0);
-}*/
+//     while ((line = get_next_line(fd)) != NULL)
+//     {
+//         printf("%s", line);
+//         free(line);
+//     }
+//     close(fd);
+//     return (0);
+// }

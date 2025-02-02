@@ -17,7 +17,6 @@
 #include "./libft/libft.h"
 #include <fcntl.h>
 #include <stdio.h>
-#include <string.h>
 
 #define ESC 65307 
 #define W 119

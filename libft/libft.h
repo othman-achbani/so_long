@@ -69,5 +69,13 @@ void		ft_lstdelone(t_list *lst, void (*del)(void*));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 void		ft_lstclear(t_list **lst, void (*del)(void*));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-char		*ft_freestrjoin(char *s1, char *s2);
+char		*ft_strjoinfree(char *s1, char *s2);
+char		*ft_strjoinget(char *s1, char *s2);
+size_t		ft_strlenget(char *s);
+char		*ft_strdupget(char *s);
+char		*ft_strjoinget(char *s1, char *s2);
+char		*ft_strchrget(char *str, int c);
+
+
+
 #endif

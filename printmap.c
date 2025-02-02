@@ -38,6 +38,7 @@ void	pass_the_map(t_map *map , s_var var)
 	while (y < map->y)
 	{
 		x = 0;
+		
 		while (x < map->x)
 		{
 			print_map(map, var, x * PXL, y * PXL);
