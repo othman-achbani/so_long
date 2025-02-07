@@ -12,27 +12,26 @@
 
 #include "so_long.h"
 
-void	get_image(t_map *map, s_var var)
+void	get_image(t_map *map)
 {
 	int	px;
 
 	px = PXL;
-	map->door = mlx_xpm_file_to_image(var.mlx , "./utils_xpm/door.xpm", &px , &px);
-	map->floor = mlx_xpm_file_to_image(var.mlx , "./utils_xpm/stone_floor.xpm", &px, &px);
-	map->wall = mlx_xpm_file_to_image(var.mlx , "./utils_xpm/wall.xpm", &px , &px);
-	map->coin = mlx_xpm_file_to_image(var.mlx , "./utils_xpm/coin.xpm", &px , &px);
-	player_image(map, var);
+	map->door = mlx_xpm_file_to_image(map->mlx , "./utils_xpm/door.xpm", &px , &px);
+	map->floor = mlx_xpm_file_to_image(map->mlx , "./utils_xpm/stone_floor.xpm", &px, &px);
+	map->wall = mlx_xpm_file_to_image(map->mlx , "./utils_xpm/wall.xpm", &px , &px);
+	map->coin = mlx_xpm_file_to_image(map->mlx , "./utils_xpm/coin.xpm", &px, &px);
+	player_image(map);
 }
 
-void	player_image(t_map *map , s_var var)
+void	player_image(t_map *map)
 {
 	int	px;
 
-	px = PXL;	
-	map->avatar = mlx_xpm_file_to_image(var.mlx , "./utils_xpm/avatarmv1.xpm", &px , &px);
-	map->avatar2 = mlx_xpm_file_to_image(var.mlx , "./utils_xpm/avatarmv2.xpm", &px , &px);
-	map->avatar3 = mlx_xpm_file_to_image(var.mlx , "./utils_xpm/avatarmv3.xpm", &px , &px);
-	
+	px = PXL;
+	map->avatar = mlx_xpm_file_to_image(map->mlx , "./utils_xpm/avatarmv1.xpm", &px , &px);
+	map->avatar2 = mlx_xpm_file_to_image(map->mlx , "./utils_xpm/avatarmv2.xpm", &px , &px);
+	map->avatar3 = mlx_xpm_file_to_image(map->mlx , "./utils_xpm/avatarmv3.xpm", &px , &px);
 }
 
 void	get_tilesmap(t_map *map)

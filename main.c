@@ -27,12 +27,12 @@ int main (int ac, char **av)
 	if (ac == 2)
 	{
 		map_checker(&map, av[1]);
-		var.mlx = mlx_init();
-		var.win = mlx_new_window(var.mlx, 1900,600, "so_long");
-		get_image(&map, var);
-		pass_the_map(&map, var);
-		mlx_key_hook(var.win,quit, &var);
-		mlx_loop(var.mlx);
+		map.mlx = mlx_init();
+		map.win = mlx_new_window(map.mlx, 1900,600, "so_long");
+		get_image(&map);
+		pass_the_map(&map);
+		mlx_key_hook(map.win, quit, &map);
+		mlx_loop(map.mlx);
 	}
 	else
 		ft_putstr_fd("\033[31m\\ERROR\n\033[0m", 2);

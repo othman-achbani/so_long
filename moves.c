@@ -12,20 +12,42 @@
 
 #include "so_long.h"
 
-int	quit(int keycode, s_var *var)
+int	quit(int keycode,t_map *map)
 {
 	if (keycode == ESC)
 	{
 		ft_putstr_fd("the ESC key is pressed the window will close now \n", 1);
-		mlx_destroy_window(var->mlx, var->win);
+		mlx_destroy_window(map->mlx, map->win);
 		exit(EXIT_SUCCESS);
 	}
-	if (keycode == W)
-		var->pos_y -= 10; 
-	if (keycode == S)
-		var->pos_y += 10;
-	if (keycode == A)
-		var->pos_x -= 10;
-	if (keycode == D)
-		var->pos_x += 10; 
+	else if (keycode == W)
+		move_up(map);
+	else if (keycode == S)
+		printf("i pressed s\n");
+	else if (keycode == A)
+		printf("i press a\n");
+	else if (keycode == D)
+		printf("hello\n");
+}
+
+void	content_counter(t_map *map)
+{
+	int		x;
+	int		y;
+
+	y = 0;
+	x = 0;
+	while(y < map->y)
+	{
+		while (x < map->x)
+		{
+			if (map->tilesmap[y][x] == 'C')
+				map->c++;
+			else if (map->tilesmap[y][x] == 'E');
+				map->e++;
+			x++;
+		}
+		x = 0;
+		y++;
+	}
 }

@@ -50,15 +50,31 @@ typedef struct s_map
 	void	*coin;
 	int		x;
 	int		y;
+	int		pos_x;
+	int		pos_y;
+	int		c;
+	int		e;
+	void	*mlx;
+	void	*win;
 }				t_map;
 
+typedef struct s_data
+{
+	t_map *map;
+	s_var var;
+}				t_data;
+
 void	check_file(t_map *map);
-int		quit(int keycode, s_var *var);
-void	get_image(t_map *map, s_var var);
-void	pass_the_map(t_map *map , s_var var);
+int		quit(int keycode, t_map *map);
+void	get_image(t_map *map);
+void	pass_the_map(t_map *map);
 void	get_tilesmap(t_map *map);
 void	map_checker(t_map *map , char *filename);
-void	player_image(t_map *map , s_var var);
+void	player_image(t_map *map);
+void	find_player(t_map *map);
+void	move_up(t_map *map);
+void	content_counter(t_map *map);
+
 
 
 #endif
