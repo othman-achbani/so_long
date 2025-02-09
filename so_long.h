@@ -56,6 +56,7 @@ typedef struct s_map
 	int		e;
 	void	*mlx;
 	void	*win;
+	int		counter;
 }				t_map;
 
 typedef struct s_data

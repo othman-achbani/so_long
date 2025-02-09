@@ -14,6 +14,7 @@
 
 void	map_checker(t_map *map , char *filename)
 {
+	map->counter = 0;
 	map->filename = filename;
 	check_file(map);
 	get_tilesmap(map);

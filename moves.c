@@ -27,7 +27,8 @@ int	quit(int keycode,t_map *map)
 	else if (keycode == A)
 		move_left(map);
 	else if (keycode == D)
-		move_right(map);	
+		move_right(map);
+	printf("You moved %d times.\n", ++map->counter);
 }
 
 void	content_counter(t_map *map)
