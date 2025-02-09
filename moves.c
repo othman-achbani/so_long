@@ -23,11 +23,11 @@ int	quit(int keycode,t_map *map)
 	else if (keycode == W)
 		move_up(map);
 	else if (keycode == S)
-		printf("i pressed s\n");
+		move_down(map);
 	else if (keycode == A)
-		printf("i press a\n");
+		move_left(map);
 	else if (keycode == D)
-		printf("hello\n");
+		move_right(map);	
 }
 
 void	content_counter(t_map *map)
@@ -35,6 +35,8 @@ void	content_counter(t_map *map)
 	int		x;
 	int		y;
 
+	map->c = 0;
+	map->e = 0;
 	y = 0;
 	x = 0;
 	while(y < map->y)
