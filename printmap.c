@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 20:20:20 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/10 14:54:49 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/10 21:01:47 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,25 @@
 
 static void	print_map(t_map *map, int x, int y)
 {
-	char	tile;
+	char	t;
 
-	tile = map->tilesmap[y / PXL ][x / PXL];
-	if (tile == 'E' || tile == 'P'|| tile == '0' || tile == 'C')
+	t = map->tilesmap[y / PXL ][x / PXL];
+	if (t == 'E' || t == 'P'|| t == '0' || t == 'C')
 		mlx_put_image_to_window(map->mlx, map->win, map->floor, x, y);
-	if (tile == 'C')
+	if (t == 'C')
 		mlx_put_image_to_window(map->mlx, map->win, map->coin, x , y);
-	if (tile == 'E')
+	if (t == 'E')
 		mlx_put_image_to_window(map->mlx, map->win, map->door, x, y);
-	if (tile == 'P')
+	if (t == 'P')
 		mlx_put_image_to_window(map->mlx, map->win, map->avatar, x, y);
-	if (tile == '1')
+	if (t == '1')
 		mlx_put_image_to_window(map->mlx, map->win, map->wall, x, y);
+	if (t != '0' && t != '1' && t != 'C' && t != 'E' && t != 'P' && t)
+	{
+		ft_putstr_fd("\033[31m tile not valid \
+please check it again \n\033[0m", 2);
+		exit(EXIT_FAILURE);
+	}
 }
 
 void	pass_the_map(t_map *map)
@@ -48,5 +54,4 @@ void	pass_the_map(t_map *map)
 		y++;
 	}
 	find_player(map);
-	content_counter(map);
 }

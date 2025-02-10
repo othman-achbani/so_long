@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oachbani <oachbani@student.1337.ma>        #+#  +:+       +#+        */
+/*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-02-06 12:59:16 by oachbani          #+#    #+#             */
-/*   Updated: 2025-02-06 12:59:16 by oachbani         ###   ########.fr       */
+/*   Created: 2025/02/06 12:59:16 by oachbani          #+#    #+#             */
+/*   Updated: 2025/02/10 21:51:33 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ static void	check_win(t_map *map, int x, int y , int dir)
 		map->c--;
 	if (map->tilesmap[y][x] == 'E' && map->c == 0)
 	{
-		// i need to add win function here ;
-		
+		ft_winner(map);
 	}
 }
 void	move_up(t_map *map)
@@ -38,16 +37,20 @@ void	move_up(t_map *map)
 
 	y = map->pos_y;
 	x = map->pos_x;
+	check_win(map, x, y, W);
 	if (y < map->y && map->tilesmap[y - 1][x] != '1')
 	{
+		if (map->tilesmap[y - 1][x] == 'E' && map->c != 0)
+			return ;
+		printf("You moved %d times.\n", ++map->counter);
 		map->tilesmap[y][x] = '0';
 		y--;
 		map->pos_y = y;
-		map->tilesmap[y][x] = '0';
 		map->tilesmap[y][x] = 'P';
 		pass_the_map(map);
 	}
 }
+
 void	move_right(t_map *map)
 {
 	int	y;
@@ -55,12 +58,15 @@ void	move_right(t_map *map)
 
 	y = map->pos_y;
 	x = map->pos_x;
+	check_win(map, x, y, D);
 	if (y < map->y && map->tilesmap[y][x + 1] != '1')
 	{
+		if (map->tilesmap[y][x + 1] == 'E' && map->c != 0)
+			return ;
+		printf("You moved %d times.\n", ++map->counter);
 		map->tilesmap[y][x] = '0';
 		x++;
 		map->pos_x = x;
-		map->tilesmap[y][x] = '0';
 		map->tilesmap[y][x] = 'P';
 		pass_the_map(map);
 	}
@@ -72,12 +78,16 @@ void	move_left(t_map *map)
 
 	y = map->pos_y;
 	x = map->pos_x;
+	check_win(map, x, y, A);
 	if (y < map->y && map->tilesmap[y][x - 1] != '1')
 	{
-		map->tilesmap[y][x] = '0';
+		if (map->tilesmap[y][x - 1] == 'E' && map->c != 0)
+			return ;
+		printf("You moved %d times.\n", ++map->counter);
+			map->tilesmap[y][x] = '0';
 		x--;
 		map->pos_x = x;
-		map->tilesmap[y][x] = '0';
+		// map->tilesmap[y][x] = '0';
 		map->tilesmap[y][x] = 'P';
 		pass_the_map(map);
 	}
@@ -90,12 +100,16 @@ void	move_down(t_map *map)
 
 	y = map->pos_y;
 	x = map->pos_x;
+	check_win(map, x, y, S);
 	if (y < map->y && map->tilesmap[y + 1][x] != '1')
 	{
-		map->tilesmap[y][x] = '0';
+		if (map->tilesmap[y + 1][x] == 'E' && map->c != 0)
+			return ;
+		printf("You moved %d times.\n", ++map->counter);
+			map->tilesmap[y][x] = '0';
 		y++;
 		map->pos_y = y;
-		map->tilesmap[y][x] = '0';
+		// map->tilesmap[y][x] = '0';
 		map->tilesmap[y][x] = 'P';
 		pass_the_map(map);
 	}

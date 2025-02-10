@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:13:10 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/10 15:39:30 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/10 19:51:07 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,50 @@ void	check_lenmap(t_map *map)
 	int	len2;
 	int	i;
 
+	if (!map->tilesmap)
+	{
+		ft_putstr_fd("\033[31m map not found \n\033[0m", 2);
+		exit(EXIT_FAILURE);
+	}
 	i = 0;
 	len1 = ft_strlen(map->tilesmap[0]);
+	if (len1 == 0)
+		return (ft_putstr_fd("\033[31m map not valid \n\033[0m", 2) , exit(EXIT_FAILURE));
 	while (map->tilesmap[++i])
 	{
 		len2 = ft_strlen(map->tilesmap[i]);
 		if (len2 != len1)
 		{
-			ft_putstr_fd("\033[31m map not valid please check the map and try again \n\033[0m", 2);
+			ft_putstr_fd("\033[31m map not valid please \
+			check the map and try again \n\033[0m", 2);
 			exit(EXIT_FAILURE);
 		}
 	}
+}
+void	content_counter(t_map *map)
+{
+	int		x;
+	int		y;
+	int		p;
+
+	map->c = 0;
+	map->e = 0;
+	y = -1;
+	x = -1;
+	p = 0;
+	while(++y < map->y)
+	{
+		while (++x < map->x)
+		{
+			if (map->tilesmap[y][x] == 'C')
+				map->c++;
+			else if (map->tilesmap[y][x] == 'E')
+				map->e++;
+			else if (map->tilesmap[y][x] == 'P')
+				p++;
+		}
+		x = -1;
+	}
+	if (map->e != 1 || p != 1)
+		exit(EXIT_FAILURE);
 }

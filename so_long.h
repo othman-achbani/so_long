@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:04:59 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/10 15:49:07 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/10 21:27:17 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 #define A 97
 #define S 115
 #define D 100
-#define PXL 50
+#define PXL 64
 
 
 typedef struct s_map
@@ -37,6 +37,7 @@ typedef struct s_map
 	void	*floor;
 	void	*water;
 	char	**tilesmap;
+	char	**copy;
 	char	*buffer;
 	void	*coin;
 	int		x;
@@ -64,5 +65,6 @@ void	move_right(t_map *map);
 void	move_left(t_map *map);
 void	move_down(t_map *map);
 void	check_lenmap(t_map *map);
-
+void	content_counter(t_map *map);
+void	ft_winner(t_map *map);
 #endif

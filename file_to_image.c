@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   file_to_image.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oachbani <oachbani@student.1337.ma>        #+#  +:+       +#+        */
+/*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-01-27 16:16:21 by oachbani          #+#    #+#             */
-/*   Updated: 2025-01-27 16:16:21 by oachbani         ###   ########.fr       */
+/*   Created: 2025/01/27 16:16:21 by oachbani          #+#    #+#             */
+/*   Updated: 2025/02/10 18:44:48 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	get_tilesmap(t_map *map)
 	}
 	line = get_next_line(fd);
 	map->x = ft_strlen(line);
-	while (line)
+	while (line && line[0] != '\n')
 	{
 		map->buffer = ft_strjoin(map->buffer, line);
 		free(line);
@@ -58,4 +58,5 @@ void	get_tilesmap(t_map *map)
 	}
 	close (fd);
 	map->tilesmap = ft_split(map->buffer , '\n');
+	map->copy = ft_split(map->buffer, '\n');
 }
