@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oachbani <oachbani@student.1337.ma>        #+#  +:+       +#+        */
+/*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-01-24 15:45:31 by oachbani          #+#    #+#             */
-/*   Updated: 2025-01-24 15:45:31 by oachbani         ###   ########.fr       */
+/*   Created: 2025/01/24 15:45:31 by oachbani          #+#    #+#             */
+/*   Updated: 2025/02/10 15:38:51 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,18 @@ void	map_checker(t_map *map , char *filename)
 	map->filename = filename;
 	check_file(map);
 	get_tilesmap(map);
+	check_lenmap(map);
 }
 
 int main (int ac, char **av)
 {
-	s_var	var;
 	t_map	map;
 
 	if (ac == 2)
 	{
 		map_checker(&map, av[1]);
 		map.mlx = mlx_init();
-		map.win = mlx_new_window(map.mlx, 1900,600, "so_long");
+		map.win = mlx_new_window(map.mlx, map.x * PXL, map.y * PXL, "so_long");
 		get_image(&map);
 		pass_the_map(&map);
 		mlx_key_hook(map.win, quit, &map);

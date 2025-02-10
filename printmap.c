@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printmap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oachbani <oachbani@student.1337.ma>        #+#  +:+       +#+        */
+/*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-01-28 20:20:20 by oachbani          #+#    #+#             */
-/*   Updated: 2025-01-28 20:20:20 by oachbani         ###   ########.fr       */
+/*   Created: 2025/01/28 20:20:20 by oachbani          #+#    #+#             */
+/*   Updated: 2025/02/10 14:54:49 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	print_map(t_map *map, int x, int y)
 	if (tile == 'E')
 		mlx_put_image_to_window(map->mlx, map->win, map->door, x, y);
 	if (tile == 'P')
-		mlx_put_image_to_window(map->mlx, map->win, map->avatar, x, y-9);
+		mlx_put_image_to_window(map->mlx, map->win, map->avatar, x, y);
 	if (tile == '1')
 		mlx_put_image_to_window(map->mlx, map->win, map->wall, x, y);
 }

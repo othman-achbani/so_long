@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oachbani <oachbani@student.1337.ma>        #+#  +:+       +#+        */
+/*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-01-24 11:04:59 by oachbani          #+#    #+#             */
-/*   Updated: 2025-01-24 11:04:59 by oachbani         ###   ########.fr       */
+/*   Created: 2025/01/24 11:04:59 by oachbani          #+#    #+#             */
+/*   Updated: 2025/02/10 15:49:07 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,6 @@
 #define D 100
 #define PXL 50
 
-typedef struct s_vars
-{
-	char	*filename;
-	void	*mlx;
-	void	*win;
-	int		pos_x;
-	int		pos_y;
-	void	*tile;
-}				s_var;
 
 typedef struct s_map
 {
@@ -59,12 +50,6 @@ typedef struct s_map
 	int		counter;
 }				t_map;
 
-typedef struct s_data
-{
-	t_map *map;
-	s_var var;
-}				t_data;
-
 void	check_file(t_map *map);
 int		quit(int keycode, t_map *map);
 void	get_image(t_map *map);
@@ -78,6 +63,6 @@ void	content_counter(t_map *map);
 void	move_right(t_map *map);
 void	move_left(t_map *map);
 void	move_down(t_map *map);
-
+void	check_lenmap(t_map *map);
 
 #endif

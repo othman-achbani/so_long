@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025-01-27 12:47:38 by oachbani          #+#    #+#             */
-/*   Updated: 2025-01-27 12:47:38 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/10 13:36:17 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	quit(int keycode,t_map *map)
 	else if (keycode == D)
 		move_right(map);
 	printf("You moved %d times.\n", ++map->counter);
+return (0);
 }
 
 void	content_counter(t_map *map)
@@ -46,7 +47,7 @@ void	content_counter(t_map *map)
 		{
 			if (map->tilesmap[y][x] == 'C')
 				map->c++;
-			else if (map->tilesmap[y][x] == 'E');
+			else if (map->tilesmap[y][x] == 'E')
 				map->e++;
 			x++;
 		}
