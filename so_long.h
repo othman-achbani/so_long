@@ -6,26 +6,29 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:04:59 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/10 21:27:17 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/11 16:33:00 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
-#define SO_LONG_H
+# define SO_LONG_H
 
-#include "./minilibx-linux/mlx.h"
-#include "./libft/libft.h"
-#include <fcntl.h>
-#include <stdio.h>
+# include "./libft/libft.h"
+# include "./minilibx-linux/mlx.h"
+# include <fcntl.h>
+# include <stdio.h>
 
-#define ESC 65307 
-#define W 119
-#define A 97
-#define S 115
-#define D 100
-#define PXL 64
-
-
+# define ESC 65307
+# define W 119
+# define A 97
+# define S 115
+# define D 100
+# define PXL 64
+# define MAP_ERROR "\033[31mmap not valid please check the \
+map and try again\n\033[0m"
+# define NO_MAP 2
+# define NO_WIN 1
+# define WINNER 69
 typedef struct s_map
 {
 	char	*filename;
@@ -49,22 +52,26 @@ typedef struct s_map
 	void	*mlx;
 	void	*win;
 	int		counter;
-}				t_map;
+	int		exit;
+}			t_map;
 
-void	check_file(t_map *map);
-int		quit(int keycode, t_map *map);
-void	get_image(t_map *map);
-void	pass_the_map(t_map *map);
-void	get_tilesmap(t_map *map);
-void	map_checker(t_map *map , char *filename);
-void	player_image(t_map *map);
-void	find_player(t_map *map);
-void	move_up(t_map *map);
-void	content_counter(t_map *map);
-void	move_right(t_map *map);
-void	move_left(t_map *map);
-void	move_down(t_map *map);
-void	check_lenmap(t_map *map);
-void	content_counter(t_map *map);
-void	ft_winner(t_map *map);
+void		destroyer(t_map *map);
+void		check_file(t_map *map);
+int			quit(int keycode, t_map *map);
+void		get_image(t_map *map);
+void		pass_the_map(t_map *map);
+void		get_tilesmap(t_map *map);
+void		map_checker(t_map *map, char *filename);
+void		player_image(t_map *map);
+void		find_player(t_map *map);
+void		move_up(t_map *map);
+void		content_counter(t_map *map);
+void		move_right(t_map *map);
+void		move_left(t_map *map);
+void		move_down(t_map *map);
+void		check_lenmap(t_map *map);
+void		content_counter(t_map *map);
+void		ft_winner(t_map *map);
+void	ft_map_error(t_map *map, int pos);
+
 #endif

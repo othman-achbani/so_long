@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:13:10 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/10 19:51:07 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/11 17:27:29 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	check_file(t_map *map)
 		exit(EXIT_FAILURE);
 	}
 }
+
 void	check_lenmap(t_map *map)
 {
 	int len1;
@@ -38,19 +39,14 @@ void	check_lenmap(t_map *map)
 	}
 	i = 0;
 	len1 = ft_strlen(map->tilesmap[0]);
-	if (len1 == 0)
-		return (ft_putstr_fd("\033[31m map not valid \n\033[0m", 2) , exit(EXIT_FAILURE));
 	while (map->tilesmap[++i])
 	{
 		len2 = ft_strlen(map->tilesmap[i]);
 		if (len2 != len1)
-		{
-			ft_putstr_fd("\033[31m map not valid please \
-			check the map and try again \n\033[0m", 2);
-			exit(EXIT_FAILURE);
-		}
+			ft_map_error(map, 1);
 	}
 }
+
 void	content_counter(t_map *map)
 {
 	int		x;
@@ -75,6 +71,6 @@ void	content_counter(t_map *map)
 		}
 		x = -1;
 	}
-	if (map->e != 1 || p != 1)
-		exit(EXIT_FAILURE);
+	if (map->e != 1 || p != 1 || map->c == 0)
+		ft_map_error(map,1);
 }

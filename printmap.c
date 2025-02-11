@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 20:20:20 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/10 21:01:47 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/11 17:41:58 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static void	print_map(t_map *map, int x, int y)
 	char	t;
 
 	t = map->tilesmap[y / PXL ][x / PXL];
+	if (t != '0' && t != '1' && t != 'C' && t != 'E' && t != 'P' && t)
+		ft_map_error(map, NO_MAP);
 	if (t == 'E' || t == 'P'|| t == '0' || t == 'C')
 		mlx_put_image_to_window(map->mlx, map->win, map->floor, x, y);
 	if (t == 'C')
@@ -27,12 +29,6 @@ static void	print_map(t_map *map, int x, int y)
 		mlx_put_image_to_window(map->mlx, map->win, map->avatar, x, y);
 	if (t == '1')
 		mlx_put_image_to_window(map->mlx, map->win, map->wall, x, y);
-	if (t != '0' && t != '1' && t != 'C' && t != 'E' && t != 'P' && t)
-	{
-		ft_putstr_fd("\033[31m tile not valid \
-please check it again \n\033[0m", 2);
-		exit(EXIT_FAILURE);
-	}
 }
 
 void	pass_the_map(t_map *map)

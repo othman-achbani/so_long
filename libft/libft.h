@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oachbani <oachbani@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 14:55:18 by oachbani          #+#    #+#             */
-/*   Updated: 2024/11/06 15:52:43 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/11 12:30:18 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+void		ft_free(char **tab);
 char		*get_next_line(int fd);
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);

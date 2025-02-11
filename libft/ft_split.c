@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oachbani <oachbani@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 12:14:06 by oachbani          #+#    #+#             */
-/*   Updated: 2024/11/06 15:27:05 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/11 12:30:07 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static int	count_words(char const *str, char c)
 	return (count);
 }
 
-static void	ft_free(char **tab)
+void	ft_free(char **tab)
 {
 	int	i;
 

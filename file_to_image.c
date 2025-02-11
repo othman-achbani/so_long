@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 16:16:21 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/10 18:44:48 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/11 17:36:29 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,30 +29,31 @@ void	player_image(t_map *map)
 	int	px;
 
 	px = PXL;
-	map->avatar = mlx_xpm_file_to_image(map->mlx , "./utils_xpm/avatarmv1.xpm", &px , &px);
-	map->avatar2 = mlx_xpm_file_to_image(map->mlx , "./utils_xpm/avatarmv2.xpm", &px , &px);
-	map->avatar3 = mlx_xpm_file_to_image(map->mlx , "./utils_xpm/avatarmv3.xpm", &px , &px);
+	map->avatar = mlx_xpm_file_to_image(map->mlx, "./utils_xpm/avatarmv1.xpm", &px , &px);
+	map->avatar2 = mlx_xpm_file_to_image(map->mlx, "./utils_xpm/avatarmv2.xpm", &px , &px);
+	map->avatar3 = mlx_xpm_file_to_image(map->mlx, "./utils_xpm/avatarmv3.xpm", &px , &px);
 }
 
 void	get_tilesmap(t_map *map)
 {
 	char	*line;
 	int		fd;
+	char *tmp;
 
-	map->y = 0;
-	map->buffer = "";
+	map->buffer = NULL;
 	fd = open(map->filename , O_RDONLY);
 	if (fd == -1)
-	{
-		ft_putstr_fd("can't open file\n", 2);
-		exit(EXIT_FAILURE);
-	}
+		ft_map_error(map, NO_MAP);
 	line = get_next_line(fd);
+	if (!line)
+		ft_map_error(map, NO_MAP);
 	map->x = ft_strlen(line);
-	while (line && line[0] != '\n')
+	while (line)
 	{
-		map->buffer = ft_strjoin(map->buffer, line);
+		tmp = map->buffer;
+		map->buffer = ft_strjoin(tmp, line);
 		free(line);
+		free(tmp);
 		line = get_next_line(fd);
 		map->y++;
 	}
