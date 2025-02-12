@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 12:23:20 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/12 19:40:36 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/12 21:29:54 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,17 +79,9 @@ static void move_on_the_map(int x, int y, t_map *map)
 void	check_valid_path(t_map *map)
 {
 	map->c_check = map->c;
-	printf("%i",map->c_check );
 	map->e_check = map->e;
 	find_player(map);
 	move_on_the_map(map->pos_x , map->pos_y, map);
-	int i =0;
-	while (map->copy[i])
-	{
-		printf("%s \n",map->copy[i]);
-		i++;
-	}
-	printf("%i",map->c_check );
 	if (map->c_check != 0 || map->e_check != 0)
 		ft_map_error(map, 1);
 }

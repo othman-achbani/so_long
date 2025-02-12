@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 20:20:20 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/11 19:24:35 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/12 21:30:36 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	print_map(t_map *map, int x, int y)
 	if (t == 'E' || t == 'P'|| t == '0' || t == 'C')
 		mlx_put_image_to_window(map->mlx, map->win, map->floor, x, y);
 	if (t == 'C')
-		mlx_put_image_to_window(map->mlx, map->win, map->coin, x , y);
+		mlx_put_image_to_window(map->mlx, map->win, map->coin, x , y + 2);
 	if (t == 'E')
 		mlx_put_image_to_window(map->mlx, map->win, map->door, x, y);
 	if (t == 'P')

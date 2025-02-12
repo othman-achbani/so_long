@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:04:59 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/12 18:58:58 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/12 23:03:01 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,10 @@ typedef struct s_map
 	int		e_check;
 }			t_map;
 
+void		animation_right(int x , int y , t_map *map);
+void		animation_down(int x , int y , t_map *map);
+void		animation_up(int x , int y , t_map *map);
+void		animation_left(int x , int y , t_map *map);
 void		check_valid_path(t_map *map);
 void		check_wall(t_map *map);
 void		destroyer(t_map *map);
