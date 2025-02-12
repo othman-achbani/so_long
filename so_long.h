@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:04:59 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/11 16:33:00 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/12 18:58:58 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ map and try again\n\033[0m"
 # define NO_MAP 2
 # define NO_WIN 1
 # define WINNER 69
+
 typedef struct s_map
 {
 	char	*filename;
@@ -38,7 +39,6 @@ typedef struct s_map
 	void	*wall;
 	void	*door;
 	void	*floor;
-	void	*water;
 	char	**tilesmap;
 	char	**copy;
 	char	*buffer;
@@ -53,8 +53,12 @@ typedef struct s_map
 	void	*win;
 	int		counter;
 	int		exit;
+	int		c_check;
+	int		e_check;
 }			t_map;
 
+void		check_valid_path(t_map *map);
+void		check_wall(t_map *map);
 void		destroyer(t_map *map);
 void		check_file(t_map *map);
 int			quit(int keycode, t_map *map);
@@ -72,6 +76,6 @@ void		move_down(t_map *map);
 void		check_lenmap(t_map *map);
 void		content_counter(t_map *map);
 void		ft_winner(t_map *map);
-void	ft_map_error(t_map *map, int pos);
+void		ft_map_error(t_map *map, int pos);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:13:10 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/11 17:27:29 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/12 14:25:11 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,11 @@ void	check_lenmap(t_map *map)
 	len1 = ft_strlen(map->tilesmap[0]);
 	while (map->tilesmap[++i])
 	{
-		len2 = ft_strlen(map->tilesmap[i]);
+		len2 = ft_strlen(map->tilesmap[1]);
 		if (len2 != len1)
+		{
 			ft_map_error(map, 1);
+		}
 	}
 }
 
@@ -72,5 +74,30 @@ void	content_counter(t_map *map)
 		x = -1;
 	}
 	if (map->e != 1 || p != 1 || map->c == 0)
-		ft_map_error(map,1);
+		ft_map_error(map, NO_MAP);
+}
+
+void	check_wall(t_map *map)
+{
+	int	i;
+	int y;
+
+	i = -1;
+	while (++i < map->x)
+		if (map->tilesmap[0][i] != '1')
+			ft_map_error(map, 1);
+	i = -1;
+	while (++i < map->y)
+		if (map->tilesmap[i][0] != '1')
+			ft_map_error(map, 1);
+	i = map->x - 1;
+	y = -1;
+	while (++y < map->y )
+		if (map->tilesmap[y][i] != '1')
+			ft_map_error(map, 1);
+	i = map->y - 1;
+	y = -1;
+	while (++y < map->x)
+		if (map->tilesmap[i][y] != '1')
+			ft_map_error(map, 1);
 }

@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 14:55:18 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/11 12:30:18 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/12 19:03:58 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <stdint.h>
 
-# define BUFFER_SIZE 5
+# define BUFFER_SIZE 1
 
 typedef struct s_list
 {
