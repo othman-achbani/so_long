@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:59:16 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/12 23:14:58 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/13 14:38:51 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	move_up(t_map *map)
 	{
 		if (map->tilesmap[y - 1][x] == 'E' && (map->c != 0 || map->exit == 1))
 			return ;
-		printf("You moved %d times.\n", ++map->counter);
+		print_moves(++map->counter);
 		animation_up(x, y,map);
 		map->tilesmap[y][x] = '0';
 		y--;
@@ -64,7 +64,7 @@ void	move_right(t_map *map)
 	{
 		if (map->tilesmap[y][x + 1] == 'E' && (map->c != 0 || map->exit == 1))
 			return ;
-		printf("You moved %d times.\n", ++map->counter);
+		print_moves(++map->counter);
 		map->tilesmap[y][x] = '0';
 		animation_right(x, y, map);
 		x++;
@@ -85,7 +85,7 @@ void	move_left(t_map *map)
 	{
 		if (map->tilesmap[y][x - 1] == 'E' && (map->c != 0 || map->exit == 1))
 			return ;
-		printf("You moved %d times.\n", ++map->counter);
+		print_moves(++map->counter);
 		animation_left(x, y, map);
 		map->tilesmap[y][x] = '0';
 		x--;
@@ -107,7 +107,7 @@ void	move_down(t_map *map)
 	{
 		if (map->tilesmap[y + 1][x] == 'E' && (map->c != 0 || map->exit == 1))
 			return ;
-		printf("You moved %d times.\n", ++map->counter);
+		print_moves(++map->counter);
 		animation_down(x, y, map);
 		map->tilesmap[y][x] = '0';
 		y++;

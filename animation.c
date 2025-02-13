@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 22:54:14 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/12 23:15:23 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/13 12:47:33 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,36 +17,37 @@ void	animation_up(int x , int y , t_map *map)
 	int i;
 
 	i = 0;
-	while (i++ < 1500)
-	{
+	while (i++ < 2000)
 		mlx_put_image_to_window(map->mlx, map->win, map->avatar2, x * PXL, y * PXL);
+	i = 0;
+	while (i++ < 2000)
 		mlx_put_image_to_window(map->mlx, map->win, map->avatar3, x * PXL, y * PXL);
-	}
 	mlx_put_image_to_window(map->mlx, map->win, map->floor, x * PXL, y * PXL);
 	i = 0;
-	while (i++ < 1500)
-	{
+	while (i++ < 2000)
 		mlx_put_image_to_window(map->mlx, map->win, map->avatar3, x * PXL, (y-1) * PXL);
+	i = 0;
+	while(i++ < 2000)
 		mlx_put_image_to_window(map->mlx, map->win, map->avatar2, x * PXL, (y-1) * PXL);
-	}
 }
+
 void	animation_down(int x , int y , t_map *map)
 {
 	int i;
 
 	i = 0;
-	while (i++ < 1500)
-	{
+	while (i++ < 2000)
 		mlx_put_image_to_window(map->mlx, map->win, map->avatar2, x * PXL, y * PXL);
+	i = 0;
+	while (i++ < 2000)
 		mlx_put_image_to_window(map->mlx, map->win, map->avatar3, x * PXL, y * PXL);
-	}
 	mlx_put_image_to_window(map->mlx, map->win, map->floor, x * PXL, y * PXL);
 	i = 0;
-	while (i++ < 1500)
-	{
-		mlx_put_image_to_window(map->mlx, map->win, map->avatar3, x * PXL, (y+1) * PXL);
-		mlx_put_image_to_window(map->mlx, map->win, map->avatar2, x * PXL, (y+1) * PXL);
-	}
+	while (i++ < 2000)
+		mlx_put_image_to_window(map->mlx, map->win, map->avatar3, x * PXL, (y + 1) * PXL);
+	i = 0;
+	while(i++ < 2000)
+		mlx_put_image_to_window(map->mlx, map->win, map->avatar2, x * PXL, (y + 1) * PXL);
 }
 
 void	animation_right(int x , int y , t_map *map)
@@ -54,18 +55,18 @@ void	animation_right(int x , int y , t_map *map)
 	int i;
 
 	i = 0;
-	while (i++ < 1500)
-	{
+	while (i++ < 2000)
 		mlx_put_image_to_window(map->mlx, map->win, map->avatar2, x * PXL, y * PXL);
+	i = 0;
+	while (i++ < 2000)
 		mlx_put_image_to_window(map->mlx, map->win, map->avatar3, x * PXL, y * PXL);
-	}
 	mlx_put_image_to_window(map->mlx, map->win, map->floor, x * PXL, y * PXL);
 	i = 0;
-	while (i++ < 1500)
-	{
+	while (i++ < 2000)
 		mlx_put_image_to_window(map->mlx, map->win, map->avatar3, (x + 1) * PXL, y * PXL);
+	i=0;
+	while(i++ < 2000)
 		mlx_put_image_to_window(map->mlx, map->win, map->avatar2, (x + 1) * PXL, y * PXL);
-	}
 }
 
 void	animation_left(int x , int y , t_map *map)
@@ -73,16 +74,16 @@ void	animation_left(int x , int y , t_map *map)
 	int i;
 
 	i = 0;
-	while (i++ < 1500)
-	{
+	while (i++ < 2000)
 		mlx_put_image_to_window(map->mlx, map->win, map->avatar2, x * PXL, y * PXL);
+	i = 0;
+	while (i++ < 2000)
 		mlx_put_image_to_window(map->mlx, map->win, map->avatar3, x * PXL, y * PXL);
-	}
 	mlx_put_image_to_window(map->mlx, map->win, map->floor, x * PXL, y * PXL);
 	i = 0;
-	while (i++ < 1500)
-	{
+	while (i++ < 2000)
 		mlx_put_image_to_window(map->mlx, map->win, map->avatar3, (x - 1) * PXL, y * PXL);
+	i = 0;
+	while(i++ < 2000)
 		mlx_put_image_to_window(map->mlx, map->win, map->avatar2, (x - 1) * PXL, y * PXL);
-	}
 }
