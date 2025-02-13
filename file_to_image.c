@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 16:16:21 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/12 19:02:41 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/13 16:02:07 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,17 @@ void	get_image(t_map *map)
 
 	px = PXL;
 	map->door = mlx_xpm_file_to_image(map->mlx , "./utils_xpm/door.xpm", &px , &px);
+	if (!map->door)
+		ft_map_error(map, 1);
 	map->floor = mlx_xpm_file_to_image(map->mlx , "./utils_xpm/stone_floor.xpm", &px, &px);
+	if (!map->floor)
+		ft_map_error(map, 1);
 	map->wall = mlx_xpm_file_to_image(map->mlx , "./utils_xpm/wall.xpm", &px , &px);
+	if (!map->wall)
+		ft_map_error(map, 1);
 	map->coin = mlx_xpm_file_to_image(map->mlx , "./utils_xpm/coin.xpm", &px, &px);
+	if (!map->coin)
+		ft_map_error(map, 1);
 	player_image(map);
 }
 
@@ -30,8 +38,14 @@ void	player_image(t_map *map)
 
 	px = PXL;
 	map->avatar = mlx_xpm_file_to_image(map->mlx, "./utils_xpm/avatarmv1.xpm", &px , &px);
+	if (!map->avatar)
+		ft_map_error(map, 1);
 	map->avatar2 = mlx_xpm_file_to_image(map->mlx, "./utils_xpm/avatarmv2.xpm", &px , &px);
+	if (!map->avatar2)
+		ft_map_error(map, 1);
 	map->avatar3 = mlx_xpm_file_to_image(map->mlx, "./utils_xpm/avatarmv3.xpm", &px , &px);
+	if (!map->avatar3)
+		ft_map_error(map, 1);
 	content_counter(map);
 }
 
