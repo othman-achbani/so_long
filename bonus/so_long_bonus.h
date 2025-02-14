@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:04:59 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/13 16:59:38 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/14 10:44:50 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <fcntl.h>
 # include <stdio.h>
 
+# define MAP_ERROR "\033[31mmap not valid please check the \
+map and try again\n\033[0m"
 # define ESC 65307
 # define W 119
 # define A 97
@@ -25,11 +27,10 @@
 # define D 100
 # define PXL 64
 # define F 102
-# define MAP_ERROR "\033[31mmap not valid please check the \
-map and try again\n\033[0m"
-# define NO_MAP 2
-# define NO_WIN 1
 # define WINNER 69
+# define RIGHT 1
+# define LEFT 0
+# define NO_MAP 1
 
 typedef struct s_map
 {
@@ -37,9 +38,15 @@ typedef struct s_map
 	void	*avatar;
 	void	*avatar2;
 	void	*avatar3;
+	void	*avatar_lft;
+	void	*avatar2_lft;
+	void	*avatar3_lft;
 	void	*attack1_1;
 	void	*attack1_2;
 	void	*attack1_3;
+	void	*attack1_1_lft;
+	void	*attack1_2_lft;
+	void	*attack1_3_lft;
 	void	*wall;
 	void	*door;
 	void	*floor;
@@ -59,8 +66,11 @@ typedef struct s_map
 	int		exit;
 	int		c_check;
 	int		e_check;
+	int		direction;
 }			t_map;
 
+void		player_left_image(t_map *map);
+void		destroyer_dir(t_map *map);
 void		attack1(t_map *map);
 void		print_moves(int num);
 void		animation_right(int x , int y , t_map *map);

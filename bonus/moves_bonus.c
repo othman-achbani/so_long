@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 12:47:38 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/13 16:59:59 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/14 10:59:02 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	print_moves(int num)
 }
 void	ft_winner(t_map *map)
 {
-	map->exit = 1 ;
 	ft_putstr_fd("\033[93m  ▌ ▐·▪   ▄▄· ▄▄▄▄▄      ▄▄▄   ▄· ▄▌    ▄▄ \n\033[0m", 1);
 	ft_putstr_fd("\033[93m ▪█·█▌██ ▐█ ▌▪•██  ▪     ▀▄ █·▐█▪██▌    ██▌ \n\033[0m", 1);
 	ft_putstr_fd("\033[93m ▐█▐█•▐█·██ ▄▄ ▐█.▪ ▄█▀▄ ▐▀▀▄ ▐█▌▐█▪    ▐█· \n\033[0m", 1);
@@ -38,7 +37,6 @@ int quit(int keycode,t_map *map)
 	{
 		ft_putstr_fd("the ESC key is pressed the window will close now \n", 1);
 		ft_map_error(map, WINNER);
-		exit(EXIT_SUCCESS);
 	}
 	else if (keycode == W)
 		move_up(map);

@@ -6,11 +6,12 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 12:23:20 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/13 17:12:08 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/14 10:51:24 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
+
 void	destroyer_bonus(t_map *map)
 {
 	if (map->attack1_1)
@@ -19,13 +20,9 @@ void	destroyer_bonus(t_map *map)
 		mlx_destroy_image(map->mlx, map->attack1_2);
 	if (map->attack1_3)
 		mlx_destroy_image(map->mlx, map->attack1_3);
-	if (map->mlx && map->win)
-	{
-		mlx_destroy_window(map->mlx , map->win);
-		mlx_destroy_display(map->mlx);
-		free(map->mlx);
-	}
+	destroyer_dir(map);
 }
+
 void	destroyer(t_map *map)
 {
 	if (map->door)

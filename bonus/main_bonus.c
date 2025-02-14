@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 15:45:31 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/13 15:18:27 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/14 11:46:49 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,34 @@ void	map_checker(t_map *map , char *filename)
 	check_valid_path(map);
 }
 
+int	ft_close(t_map *map)
+{
+	ft_putstr_fd("you just pressed close button it will close now\n", 1);
+	ft_map_error(map, WINNER);
+	return(0);
+}
+
 int main (int ac, char **av)
 {
 	t_map	map;
+	int		width;
+	int		height;
 
 	map = (t_map){0};
 	if (ac == 2)
 	{
 		map_checker(&map, av[1]);
 		map.mlx = mlx_init();
+		mlx_get_screen_size(map.mlx, &width, &height);
+		if (map.x * PXL > width || map.y * PXL > height)
+			ft_map_error(&map, 1);
 		map.win = mlx_new_window(map.mlx, map.x * PXL, map.y * PXL, "so_long");
 		get_image(&map);
 		pass_the_map(&map);
 		mlx_key_hook(map.win, quit, &map);
+		mlx_hook(map.win, 17, 0, ft_close, &map);
 		mlx_loop(map.mlx);
 	}
 	else
 		ft_putstr_fd("\033[31m\\ERROR\n\033[0m", 2);
-}	
+}

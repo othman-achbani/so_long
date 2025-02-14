@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 16:16:21 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/13 17:31:48 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/14 10:35:11 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	get_image(t_map *map)
 	if (!map->coin)
 		ft_map_error(map, 1);
 	player_image(map);
+	player_left_image(map);
 }
 
 void	player_image(t_map *map)
@@ -62,6 +63,31 @@ void	player_image(t_map *map)
 	map->attack1_3 = mlx_xpm_file_to_image(map->mlx, \
 "../utils_xpm/attack1mv3.xpm", &px, &px);
 	if (!map->attack1_3)
+		ft_map_error(map, 1);
+}
+
+void	player_left_image(t_map *map)
+{
+	int px;
+
+	px = PXL;
+	map->attack1_1_lft=mlx_xpm_file_to_image(map->mlx\
+,"../utils_xpm/attack1mv1_left.xpm", &px, &px);
+	map->attack1_2_lft=mlx_xpm_file_to_image(map->mlx\
+,"../utils_xpm/attack1mv2_left.xpm", &px, &px);
+	map->attack1_3_lft=mlx_xpm_file_to_image(map->mlx\
+,"../utils_xpm/attack1mv3_left.xpm", &px, &px);
+	if (!map->attack1_1_lft || !map->attack1_2_lft\
+|| !map->attack1_3_lft)
+		ft_map_error(map, 1);
+	map->avatar_lft = mlx_xpm_file_to_image(map->mlx, \
+"../utils_xpm/avatarmv1_left.xpm", &px, &px);
+	map->avatar2_lft = mlx_xpm_file_to_image(map->mlx, \
+"../utils_xpm/avatarmv2_left.xpm", &px, &px);
+	map->avatar3_lft = mlx_xpm_file_to_image(map->mlx, \
+"../utils_xpm/avatarmv3_left.xpm", &px, &px);
+	if (!map->avatar_lft || !map->avatar2_lft\
+|| !map->avatar3_lft)
 		ft_map_error(map, 1);
 }
 
