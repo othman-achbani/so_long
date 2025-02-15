@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:04:59 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/14 10:44:50 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/15 23:08:02 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,40 @@ map and try again\n\033[0m"
 # define RIGHT 1
 # define LEFT 0
 # define NO_MAP 1
+# define OPEN 1
+# define CLOSED 0
+#define VICTORY_MESSAGE "\033[1;92m" \
+" ██╗   ██╗██╗ ██████╗████████╗ ██████╗ ██████╗ ██╗   ██╗\n" \
+" ██║   ██║██║██╔════╝╚══██╔══╝██╔═══██╗██╔══██╗╚██╗ ██╔╝\n" \
+" ██║   ██║██║██║        ██║   ██║   ██║██████╔╝ ╚████╔╝ \n" \
+" ╚██╗ ██╔╝██║██║        ██║   ██║   ██║██╔══██╗  ╚██╔╝  \n" \
+"  ╚████╔╝ ██║╚██████╗   ██║   ╚██████╔╝██║  ██║   ██║   \n" \
+"   ╚═══╝  ╚═╝ ╚═════╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝   ╚═╝   \n" \
+"\033[0m"
+
+#define GAME_OVER_MESSAGE "\033[1;91m" \
+"  ██████╗  █████╗ ███╗   ███╗███████╗     ██████╗ ██╗   ██╗███████╗██████╗ \n" \
+" ██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ██╔═══██╗██║   ██║██╔════╝██╔══██╗\n" \
+" ██║  ███╗███████║██╔████╔██║█████╗      ██║   ██║██║   ██║█████╗  ██████╔╝\n" \
+" ██║   ██║██╔══██║██║╚██╔╝██║██╔══╝      ██║   ██║╚██╗ ██╔╝██╔══╝  ██╔══██╗\n" \
+" ╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗    ╚██████╔╝ ╚████╔╝ ███████╗██║  ██║\n" \
+"  ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝     ╚═════╝   ╚═══╝  ╚══════╝╚═╝  ╚═╝\n" \
+"\033[0m"
+
+#define MAP_ERROR_MESSAGE "\033[1;91m" \
+" ███╗   ███╗ █████╗ ██████╗     ███████╗██████╗ ██████╗  ██████╗ ██████╗ \n" \
+" ████╗ ████║██╔══██╗██╔══██╗    ██╔════╝██╔══██╗██╔══██╗██╔═══██╗██╔══██╗\n" \
+" ██╔████╔██║███████║██████╔╝    █████╗  ██████╔╝██████╔╝██║   ██║██████╔╝\n" \
+" ██║╚██╔╝██║██╔══██║██╔═══╝     ██╔══╝  ██╔══██╗██╔══██╗██║   ██║██╔══██╗\n" \
+" ██║ ╚═╝ ██║██║  ██║██║         ███████╗██║  ██║██║  ██║╚██████╔╝██║  ██║\n" \
+" ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝         ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝\n" \
+"\033[0m"
+
+typedef struct s_enemy {
+    int x;       
+    int y; 
+	int direction; 
+} 			t_enemy;
 
 typedef struct s_map
 {
@@ -47,8 +81,11 @@ typedef struct s_map
 	void	*attack1_1_lft;
 	void	*attack1_2_lft;
 	void	*attack1_3_lft;
+	void	*shot;
+	void	*enemy;
 	void	*wall;
 	void	*door;
+	void	*door_closed;
 	void	*floor;
 	char	**tilesmap;
 	char	**copy;
@@ -60,6 +97,7 @@ typedef struct s_map
 	int		pos_y;
 	int		c;
 	int		e;
+	void	*shot_anim;
 	void	*mlx;
 	void	*win;
 	int		counter;
@@ -67,9 +105,22 @@ typedef struct s_map
 	int		c_check;
 	int		e_check;
 	int		direction;
+	int		enemy_mv;
+	int		enemy_nbr;
+	t_enemy	*enemy_pos;
 }			t_map;
 
+void		initialized(t_map *map);
+void 		move_enemy_left(t_map *map, t_enemy **enemy);
+void 		draw_enemy_position(t_map *map, int x, int y);
+void 		clear_enemy_position(t_map *map, int x, int y);
+void 		move_enemy_right(t_map *map, t_enemy **enemy);
+void		scan_enemy(t_map *map);
+void		ft_loser(t_map *map);
+void		get_enemy_image(t_map *map);
+int			move_enemy(t_map *map);
 void		player_left_image(t_map *map);
+void		enemy_counter(t_map *map);
 void		destroyer_dir(t_map *map);
 void		attack1(t_map *map);
 void		print_moves(int num);
@@ -83,7 +134,7 @@ void		destroyer(t_map *map);
 void		check_file(t_map *map);
 int			quit(int keycode, t_map *map);
 void		get_image(t_map *map);
-void		pass_the_map(t_map *map);
+void		pass_the_map(t_map *map, int door);
 void		get_tilesmap(t_map *map);
 void		map_checker(t_map *map, char *filename);
 void		player_image(t_map *map);
@@ -97,5 +148,9 @@ void		check_lenmap(t_map *map);
 void		content_counter(t_map *map);
 void		ft_winner(t_map *map);
 void		ft_map_error(t_map *map, int pos);
+void 		check_player_collision(t_map *map, int x, int y);
+void 		update_position(t_map *map, int x, int y);
+int			for_normadd_(t_map *map, int x, int y);
+int			for_normmines_(t_map *map, int x, int y);
 
 #endif

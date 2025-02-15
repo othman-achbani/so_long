@@ -6,11 +6,12 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 12:47:38 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/14 10:59:02 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/15 17:03:05 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
+
 
 void	print_moves(int num)
 {
@@ -22,12 +23,16 @@ void	print_moves(int num)
 	ft_putstr_fd("\033[1;36m times.\n\033[0m", 1);
 	free(line);
 }
+
+void	ft_loser(t_map *map)
+{
+	ft_putstr_fd(GAME_OVER_MESSAGE, 1);
+	ft_map_error(map, WINNER);
+}
+
 void	ft_winner(t_map *map)
 {
-	ft_putstr_fd("\033[93m  ▌ ▐·▪   ▄▄· ▄▄▄▄▄      ▄▄▄   ▄· ▄▌    ▄▄ \n\033[0m", 1);
-	ft_putstr_fd("\033[93m ▪█·█▌██ ▐█ ▌▪•██  ▪     ▀▄ █·▐█▪██▌    ██▌ \n\033[0m", 1);
-	ft_putstr_fd("\033[93m ▐█▐█•▐█·██ ▄▄ ▐█.▪ ▄█▀▄ ▐▀▀▄ ▐█▌▐█▪    ▐█· \n\033[0m", 1);
-	ft_putstr_fd("\033[93m . ▀  ▀▀▀·▀▀▀  ▀▀▀  ▀█▄▀▪.▀  ▀  ▀ •      ▀  \n\033[0m", 1);
+	ft_putstr_fd(VICTORY_MESSAGE, 1);
 	ft_map_error(map , WINNER);
 }
 

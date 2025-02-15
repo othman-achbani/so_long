@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 12:23:20 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/14 10:51:24 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/15 23:02:48 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	destroyer_bonus(t_map *map)
 		mlx_destroy_image(map->mlx, map->attack1_2);
 	if (map->attack1_3)
 		mlx_destroy_image(map->mlx, map->attack1_3);
+	if (map->shot)
+		mlx_destroy_image(map->mlx, map->shot);
 	destroyer_dir(map);
 }
 
@@ -46,7 +48,7 @@ void	ft_map_error(t_map *map, int pos)
 	if (pos != WINNER)
 	{
 		ft_putstr_fd("\033[31mError\n\033[0m", 2);
-		ft_putstr_fd(MAP_ERROR, 2);
+		ft_putstr_fd(MAP_ERROR_MESSAGE, 2);
 	}
 	destroyer(map);
 	if (map->tilesmap)
@@ -55,6 +57,8 @@ void	ft_map_error(t_map *map, int pos)
 		ft_free(map->copy);
 	if (map->buffer)
 		free(map->buffer);
+	if(map->enemy_pos)
+		free(map->enemy_pos);
 	if (pos != WINNER)
 		exit(EXIT_FAILURE);
 	exit(EXIT_SUCCESS);

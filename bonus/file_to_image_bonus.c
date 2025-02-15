@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 16:16:21 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/14 10:35:11 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/14 21:07:37 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	get_image(t_map *map)
 		ft_map_error(map, 1);
 	player_image(map);
 	player_left_image(map);
+	get_enemy_image(map);
 }
 
 void	player_image(t_map *map)
@@ -89,6 +90,8 @@ void	player_left_image(t_map *map)
 	if (!map->avatar_lft || !map->avatar2_lft\
 || !map->avatar3_lft)
 		ft_map_error(map, 1);
+	map->door_closed = mlx_xpm_file_to_image(map->mlx ,\
+"../utils_xpm/open_door.xpm", &px, &px);
 }
 
 void	ft_check_newline(char *line , t_map *map)

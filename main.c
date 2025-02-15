@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 15:45:31 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/13 15:50:35 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/14 21:43:18 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,5 @@ int main (int ac, char **av)
 		mlx_loop(map.mlx);
 	}
 	else
-		ft_putstr_fd("\033[31m\\ERROR\n\033[0m", 2);
+		ft_putstr_fd("\033[31mError\n\033[0m", 2);
 }	
