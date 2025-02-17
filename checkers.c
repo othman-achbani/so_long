@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:13:10 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/17 14:58:52 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/17 17:29:02 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	check_lenmap(t_map *map)
 	len1 = ft_strlen(map->tilesmap[0]);
 	while (map->tilesmap[++i])
 	{
-		len2 = ft_strlen(map->tilesmap[1]);
+		len2 = ft_strlen(map->tilesmap[i]);
 		if (len2 != len1)
 		{
 			ft_map_error(map, 1);

@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 16:16:21 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/14 21:07:37 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/17 16:41:21 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@ void	get_image(t_map *map)
 	int	px;
 
 	px = PXL;
-	map->door = mlx_xpm_file_to_image(map->mlx , \
-"../utils_xpm/door.xpm", &px , &px);
+	map->door = mlx_xpm_file_to_image(map->mlx, \
+"../utils_xpm/door.xpm", &px, &px);
 	if (!map->door)
 		ft_map_error(map, 1);
-	map->floor = mlx_xpm_file_to_image(map->mlx , \
+	map->floor = mlx_xpm_file_to_image(map->mlx, \
 "../utils_xpm/stone_floor.xpm", &px, &px);
 	if (!map->floor)
 		ft_map_error(map, 1);
-	map->wall = mlx_xpm_file_to_image(map->mlx , \
-"../utils_xpm/wall.xpm", &px , &px);
+	map->wall = mlx_xpm_file_to_image(map->mlx, \
+"../utils_xpm/wall.xpm", &px, &px);
 	if (!map->wall)
 		ft_map_error(map, 1);
-	map->coin = mlx_xpm_file_to_image(map->mlx , \
+	map->coin = mlx_xpm_file_to_image(map->mlx, \
 "../utils_xpm/coin.xpm", &px, &px);
 	if (!map->coin)
 		ft_map_error(map, 1);
@@ -44,15 +44,15 @@ void	player_image(t_map *map)
 
 	px = PXL;
 	map->avatar = mlx_xpm_file_to_image(map->mlx, \
-"../utils_xpm/avatarmv1.xpm", &px , &px);
+"../utils_xpm/avatarmv1.xpm", &px, &px);
 	if (!map->avatar)
 		ft_map_error(map, 1);
 	map->avatar2 = mlx_xpm_file_to_image(map->mlx, \
-"../utils_xpm/avatarmv2.xpm", &px , &px);
+"../utils_xpm/avatarmv2.xpm", &px, &px);
 	if (!map->avatar2)
 		ft_map_error(map, 1);
 	map->avatar3 = mlx_xpm_file_to_image(map->mlx, \
-"../utils_xpm/avatarmv3.xpm", &px , &px);
+"../utils_xpm/avatarmv3.xpm", &px, &px);
 	if (!map->avatar3)
 		ft_map_error(map, 1);
 	map->attack1_1 = mlx_xpm_file_to_image(map->mlx, \
@@ -69,17 +69,17 @@ void	player_image(t_map *map)
 
 void	player_left_image(t_map *map)
 {
-	int px;
+	int	px;
 
 	px = PXL;
-	map->attack1_1_lft=mlx_xpm_file_to_image(map->mlx\
-,"../utils_xpm/attack1mv1_left.xpm", &px, &px);
-	map->attack1_2_lft=mlx_xpm_file_to_image(map->mlx\
-,"../utils_xpm/attack1mv2_left.xpm", &px, &px);
-	map->attack1_3_lft=mlx_xpm_file_to_image(map->mlx\
-,"../utils_xpm/attack1mv3_left.xpm", &px, &px);
-	if (!map->attack1_1_lft || !map->attack1_2_lft\
-|| !map->attack1_3_lft)
+	map->attack1_1_lft = mlx_xpm_file_to_image(map->mlx,
+			"../utils_xpm/attack1mv1_left.xpm", &px, &px);
+	map->attack1_2_lft = mlx_xpm_file_to_image(map->mlx,
+			"../utils_xpm/attack1mv2_left.xpm", &px, &px);
+	map->attack1_3_lft = mlx_xpm_file_to_image(map->mlx,
+			"../utils_xpm/attack1mv3_left.xpm", &px, &px);
+	if (!map->attack1_1_lft || !map->attack1_2_lft || \
+	!map->attack1_3_lft)
 		ft_map_error(map, 1);
 	map->avatar_lft = mlx_xpm_file_to_image(map->mlx, \
 "../utils_xpm/avatarmv1_left.xpm", &px, &px);
@@ -87,14 +87,14 @@ void	player_left_image(t_map *map)
 "../utils_xpm/avatarmv2_left.xpm", &px, &px);
 	map->avatar3_lft = mlx_xpm_file_to_image(map->mlx, \
 "../utils_xpm/avatarmv3_left.xpm", &px, &px);
-	if (!map->avatar_lft || !map->avatar2_lft\
-|| !map->avatar3_lft)
+	if (!map->avatar_lft || !map->avatar2_lft || \
+	!map->avatar3_lft)
 		ft_map_error(map, 1);
-	map->door_closed = mlx_xpm_file_to_image(map->mlx ,\
+	map->door_closed = mlx_xpm_file_to_image(map->mlx, \
 "../utils_xpm/open_door.xpm", &px, &px);
 }
 
-void	ft_check_newline(char *line , t_map *map)
+void	ft_check_newline(char *line, t_map *map)
 {
 	if (line[0] == '\n')
 	{
@@ -110,7 +110,7 @@ void	get_tilesmap(t_map *map)
 	char	*tmp;
 
 	map->buffer = NULL;
-	fd = open(map->filename , O_RDONLY);
+	fd = open(map->filename, O_RDONLY);
 	if (fd == -1)
 		ft_map_error(map, NO_MAP);
 	line = get_next_line(fd);
@@ -128,6 +128,6 @@ void	get_tilesmap(t_map *map)
 		map->y++;
 	}
 	close(fd);
-	map->tilesmap = ft_split(map->buffer , '\n');
+	map->tilesmap = ft_split(map->buffer, '\n');
 	map->copy = ft_split(map->buffer, '\n');
 }

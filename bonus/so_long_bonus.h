@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:04:59 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/17 12:41:33 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/17 22:39:43 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,38 +33,13 @@ map and try again\n\033[0m"
 # define NO_MAP 1
 # define OPEN 1
 # define CLOSED 0
-#define VICTORY_MESSAGE "\033[1;92m" \
-" ██╗   ██╗██╗ ██████╗████████╗ ██████╗ ██████╗ ██╗   ██╗\n" \
-" ██║   ██║██║██╔════╝╚══██╔══╝██╔═══██╗██╔══██╗╚██╗ ██╔╝\n" \
-" ██║   ██║██║██║        ██║   ██║   ██║██████╔╝ ╚████╔╝ \n" \
-" ╚██╗ ██╔╝██║██║        ██║   ██║   ██║██╔══██╗  ╚██╔╝  \n" \
-"  ╚████╔╝ ██║╚██████╗   ██║   ╚██████╔╝██║  ██║   ██║   \n" \
-"   ╚═══╝  ╚═╝ ╚═════╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝   ╚═╝   \n" \
-"\033[0m"
 
-#define GAME_OVER_MESSAGE "\033[1;91m" \
-"  ██████╗  █████╗ ███╗   ███╗███████╗     ██████╗ ██╗   ██╗███████╗██████╗ \n" \
-" ██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ██╔═══██╗██║   ██║██╔════╝██╔══██╗\n" \
-" ██║  ███╗███████║██╔████╔██║█████╗      ██║   ██║██║   ██║█████╗  ██████╔╝\n" \
-" ██║   ██║██╔══██║██║╚██╔╝██║██╔══╝      ██║   ██║╚██╗ ██╔╝██╔══╝  ██╔══██╗\n" \
-" ╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗    ╚██████╔╝ ╚████╔╝ ███████╗██║  ██║\n" \
-"  ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝     ╚═════╝   ╚═══╝  ╚══════╝╚═╝  ╚═╝\n" \
-"\033[0m"
-
-#define MAP_ERROR_MESSAGE "\033[1;91m" \
-" ███╗   ███╗ █████╗ ██████╗     ███████╗██████╗ ██████╗  ██████╗ ██████╗ \n" \
-" ████╗ ████║██╔══██╗██╔══██╗    ██╔════╝██╔══██╗██╔══██╗██╔═══██╗██╔══██╗\n" \
-" ██╔████╔██║███████║██████╔╝    █████╗  ██████╔╝██████╔╝██║   ██║██████╔╝\n" \
-" ██║╚██╔╝██║██╔══██║██╔═══╝     ██╔══╝  ██╔══██╗██╔══██╗██║   ██║██╔══██╗\n" \
-" ██║ ╚═╝ ██║██║  ██║██║         ███████╗██║  ██║██║  ██║╚██████╔╝██║  ██║\n" \
-" ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝         ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝\n" \
-"\033[0m"
-
-typedef struct s_enemy {
-    int x;       
-    int y; 
-	int direction; 
-} 			t_enemy;
+typedef struct s_enemy
+{
+	int	x;
+	int	y;
+	int	direction;
+}		t_enemy;
 
 typedef struct s_map
 {
@@ -110,15 +85,18 @@ typedef struct s_map
 	void	*shot_lft;
 	t_enemy	*enemy_pos;
 	int		shot_count;
-}			t_map;
+}				t_map;
 
+void		error_map(void);
+void		victory_message(void);
+void		game_over_message(void);
 void		remove_enemy(t_map *map, int x, int y);
 int			dropfire_lft(t_map *map, int x, int y);
 void		initialized(t_map *map);
-void 		move_enemy_left(t_map *map, t_enemy **enemy);
-void 		draw_enemy_position(t_map *map, int x, int y);
-void 		clear_enemy_position(t_map *map, int x, int y);
-void 		move_enemy_right(t_map *map, t_enemy **enemy);
+void		move_enemy_left(t_map *map, t_enemy **enemy);
+void		draw_enemy_position(t_map *map, int x, int y);
+void		clear_enemy_position(t_map *map, int x, int y);
+void		move_enemy_right(t_map *map, t_enemy **enemy);
 void		scan_enemy(t_map *map);
 void		ft_loser(t_map *map);
 void		get_enemy_image(t_map *map);
@@ -128,10 +106,10 @@ void		enemy_counter(t_map *map);
 void		destroyer_dir(t_map *map);
 void		attack1(t_map *map);
 void		print_moves(int num, t_map *map);
-void		animation_right(int x , int y , t_map *map);
-void		animation_down(int x , int y , t_map *map);
-void		animation_up(int x , int y , t_map *map);
-void		animation_left(int x , int y , t_map *map);
+void		animation_right(int x, int y, t_map *map);
+void		animation_down(int x, int y, t_map *map);
+void		animation_up(int x, int y, t_map *map);
+void		animation_left(int x, int y, t_map *map);
 void		check_valid_path(t_map *map);
 void		check_wall(t_map *map);
 void		destroyer(t_map *map);
@@ -152,8 +130,8 @@ void		check_lenmap(t_map *map);
 void		content_counter(t_map *map);
 void		ft_winner(t_map *map);
 void		ft_map_error(t_map *map, int pos);
-void 		check_player_collision(t_map *map, int x, int y);
-void 		update_position(t_map *map, int x, int y);
+void		check_player_collision(t_map *map, int x, int y);
+void		update_position(t_map *map, int x, int y);
 int			for_normadd_(t_map *map, int x, int y);
 int			for_normmines_(t_map *map, int x, int y);
 

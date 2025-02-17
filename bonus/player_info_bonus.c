@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:19:11 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/16 20:41:38 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/17 18:11:09 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ void	find_player(t_map *map)
 {
 	map->pos_x = 0;
 	map->pos_y = 0;
-
-	while(map->pos_y < map->y)
+	while (map->pos_y < map->y)
 	{
 		map->pos_x = 0;
 		while (map->pos_x < map->x)
@@ -26,9 +25,10 @@ void	find_player(t_map *map)
 				return ;
 			map->pos_x++;
 		}
-	map->pos_y++;
+		map->pos_y++;
 	}
 }
+
 void	enemy_counter(t_map *map)
 {
 	int	y;
@@ -45,6 +45,7 @@ void	enemy_counter(t_map *map)
 		y++;
 	}
 }
+
 void	scan_enemy(t_map *map)
 {
 	int	y;
@@ -60,33 +61,36 @@ void	scan_enemy(t_map *map)
 	m = -1;
 	while (++y < map->y)
 	{
-		x = -1;
-		while (++x < map->x)
+		x = 0;
+		while (x < map->x)
+		{
 			if (map->tilesmap[y][x] == 'B')
 			{
 				map->enemy_pos[++m].x = x;
 				map->enemy_pos[m].y = y;
 			}
+			x++;
+		}
 	}
 }
 
-static void	check_add(t_map *map , int i)
+static void	check_add(t_map *map, int i)
 {
-	t_enemy *enemy;
-	
+	t_enemy	*enemy;
+
 	enemy = &map->enemy_pos[i];
 	if (enemy->direction == 1)
 	{
-		if (map->tilesmap[enemy->y][enemy->x + 1 ] == '0'\
-|| map->tilesmap[enemy->y][enemy->x + 1] == 'P')
+		if (map->tilesmap[enemy->y][enemy->x + 1] == '0'
+			|| map->tilesmap[enemy->y][enemy->x + 1] == 'P')
 			enemy->x += for_normadd_(map, enemy->x, enemy->y);
 		else
 			enemy->direction = -1;
 	}
 	else
 	{
-		if (map->tilesmap[enemy->y][enemy->x - 1] == '0' \
-|| map->tilesmap[enemy->y][enemy->x - 1] == 'P')
+		if (map->tilesmap[enemy->y][enemy->x - 1] == '0'
+			|| map->tilesmap[enemy->y][enemy->x - 1] == 'P')
 			enemy->x -= for_normmines_(map, enemy->x, enemy->y);
 		else
 			enemy->direction = 1;
@@ -96,17 +100,17 @@ static void	check_add(t_map *map , int i)
 
 int	move_enemy(t_map *map)
 {
-	static int frame_counter ;
-    int i;
+	static int	frame_counter;
+	int			i;
 
-    frame_counter++;
-    if (frame_counter % 4000 == 0)
-    {
-        i = -1;
-        while (++i < map->enemy_nbr)
-        {
-            check_add(map, i);
-        }
-    }
-    return (0);
+	frame_counter++;
+	if (frame_counter % 4000 == 0)
+	{
+		i = -1;
+		while (++i < map->enemy_nbr)
+		{
+			check_add(map, i);
+		}
+	}
+	return (0);
 }
