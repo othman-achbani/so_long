@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 15:26:12 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/12 19:47:21 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/17 15:00:26 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,9 +104,10 @@ char	*get_next_line(int fd)
 		return (NULL);
 	}
 	free(line);
-	line=NULL;
+	line = NULL;
 	return (save);
 }
+
 // #include <fcntl.h>
 // #include <stdio.h>
 
@@ -114,15 +115,12 @@ char	*get_next_line(int fd)
 // {
 // 	int	fd;
 //     char *line;
-
 //     fd = open("test.txt",O_RDONLY);
-    
 //     if (fd == -1)
 //     {
 //         printf("Error opening file\n");
 //         return (1);
 //     }
-    
 //     while ((line = get_next_line(fd)) != NULL)
 //     {
 //         printf("%s", line);

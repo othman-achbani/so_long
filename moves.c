@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 12:47:38 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/13 15:37:44 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/17 14:49:56 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,30 @@
 
 void	print_moves(int num)
 {
-	char *line;
+	char	*line;
 
 	line = ft_itoa(num);
 	ft_putstr_fd("\033[1;36mthe number of moves is : \033[0m", 1);
-	ft_putstr_fd(line ,1);
+	ft_putstr_fd(line, 1);
 	ft_putstr_fd("\033[1;36m times.\n\033[0m", 1);
 	free(line);
 }
+
 void	ft_winner(t_map *map)
 {
-	map->exit = 1 ;
-	ft_putstr_fd("\033[93m  ▌ ▐·▪   ▄▄· ▄▄▄▄▄      ▄▄▄   ▄· ▄▌    ▄▄ \n\033[0m", 1);
-	ft_putstr_fd("\033[93m ▪█·█▌██ ▐█ ▌▪•██  ▪     ▀▄ █·▐█▪██▌    ██▌ \n\033[0m", 1);
-	ft_putstr_fd("\033[93m ▐█▐█•▐█·██ ▄▄ ▐█.▪ ▄█▀▄ ▐▀▀▄ ▐█▌▐█▪    ▐█· \n\033[0m", 1);
-	ft_putstr_fd("\033[93m . ▀  ▀▀▀·▀▀▀  ▀▀▀  ▀█▄▀▪.▀  ▀  ▀ •      ▀  \n\033[0m", 1);
-	ft_map_error(map , WINNER);
+	map->exit = 1;
+	ft_putstr_fd("\033[93m  ▌ ▐·▪   ▄▄· ▄▄▄▄▄     \
+▄▄▄   ▄· ▄▌    ▄▄ \n\033[0m", 1);
+	ft_putstr_fd("\033[93m ▪█·█▌██ ▐█ ▌▪•██  ▪     \
+▀▄ █·▐█▪██▌    ██▌ \n\033[0m", 1);
+	ft_putstr_fd("\033[93m ▐█▐█•▐█·██ ▄▄ ▐█.▪ ▄█▀▄\
+▐▀▀▄ ▐█▌▐█▪    ▐█· \n\033[0m", 1);
+	ft_putstr_fd("\033[93m . ▀  ▀▀▀·▀▀▀  ▀▀▀  ▀█▄\
+▀▪.▀  ▀  ▀ •      ▀  \n\033[0m", 1);
+	ft_map_error(map, WINNER);
 }
 
-int quit(int keycode,t_map *map)
+int	quit(int keycode, t_map *map)
 {
 	if (keycode == ESC)
 	{
@@ -48,6 +53,5 @@ int quit(int keycode,t_map *map)
 		move_left(map);
 	else if (keycode == D)
 		move_right(map);
-return (0);
+	return (0);
 }
-

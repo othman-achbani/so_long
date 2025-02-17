@@ -6,14 +6,13 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:59:16 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/13 14:38:51 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/17 14:49:30 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-
-static void	check_win(t_map *map, int x, int y , int dir)
+static void	check_win(t_map *map, int x, int y, int dir)
 {
 	if (dir == W)
 		y -= 1;
@@ -30,6 +29,7 @@ static void	check_win(t_map *map, int x, int y , int dir)
 		ft_winner(map);
 	}
 }
+
 void	move_up(t_map *map)
 {
 	int	y;
@@ -43,7 +43,7 @@ void	move_up(t_map *map)
 		if (map->tilesmap[y - 1][x] == 'E' && (map->c != 0 || map->exit == 1))
 			return ;
 		print_moves(++map->counter);
-		animation_up(x, y,map);
+		animation_up(x, y, map);
 		map->tilesmap[y][x] = '0';
 		y--;
 		map->tilesmap[y][x] = 'P';
@@ -73,6 +73,7 @@ void	move_right(t_map *map)
 		pass_the_map(map);
 	}
 }
+
 void	move_left(t_map *map)
 {
 	int	y;

@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:04:59 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/14 10:44:46 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/17 14:44:58 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_H
 
 # include "./libft/libft.h"
-# include "./minilibx-linux/mlx.h"
+# include "mlx.h"
 # include <fcntl.h>
 # include <stdio.h>
 
@@ -58,10 +58,10 @@ typedef struct s_map
 }			t_map;
 
 void		print_moves(int num);
-void		animation_right(int x , int y , t_map *map);
-void		animation_down(int x , int y , t_map *map);
-void		animation_up(int x , int y , t_map *map);
-void		animation_left(int x , int y , t_map *map);
+void		animation_right(int x, int y, t_map *map);
+void		animation_down(int x, int y, t_map *map);
+void		animation_up(int x, int y, t_map *map);
+void		animation_left(int x, int y, t_map *map);
 void		check_valid_path(t_map *map);
 void		check_wall(t_map *map);
 void		destroyer(t_map *map);

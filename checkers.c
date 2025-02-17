@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:13:10 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/17 11:35:23 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/17 14:58:52 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,15 @@ void	check_file(t_map *map)
 	len = ft_strlen(map->filename);
 	if (len < 5)
 	{
-		ft_putstr_fd("\033[31m map invalid it should end with .ber\n\033[0m", 2);
+		ft_putstr_fd("\033[31m map invalid it \
+should end with .ber\n\033[0m", 2);
 		exit(EXIT_FAILURE);
 	}
 	cmp = ft_strncmp(map->filename + (len - 4), ".ber", 4);
 	if (cmp != 0)
 	{
-		ft_putstr_fd("\033[31m map invalid it should end with .ber\n\033[0m", 2);
+		ft_putstr_fd("\033[31m map invalid it \
+should end with .ber\n\033[0m", 2);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -56,16 +58,16 @@ void	check_lenmap(t_map *map)
 
 void	content_counter(t_map *map)
 {
-	int		x;
-	int		y;
-	int		p;
+	int	x;
+	int	y;
+	int	p;
 
 	map->c = 0;
 	map->e = 0;
 	y = -1;
 	x = -1;
 	p = 0;
-	while(++y < map->y)
+	while (++y < map->y)
 	{
 		while (++x < map->x)
 		{
@@ -85,7 +87,7 @@ void	content_counter(t_map *map)
 void	check_wall(t_map *map)
 {
 	int	i;
-	int y;
+	int	y;
 
 	i = -1;
 	while (++i < map->x)
@@ -97,7 +99,7 @@ void	check_wall(t_map *map)
 			ft_map_error(map, 1);
 	i = map->x - 1;
 	y = -1;
-	while (++y < map->y )
+	while (++y < map->y)
 		if (map->tilesmap[y][i] != '1')
 			ft_map_error(map, 1);
 	i = map->y - 1;

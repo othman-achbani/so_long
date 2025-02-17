@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 14:55:18 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/12 19:03:58 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/17 14:59:10 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,5 @@ size_t		ft_strlenget(char *s);
 char		*ft_strdupget(char *s);
 char		*ft_strjoinget(char *s1, char *s2);
 char		*ft_strchrget(char *str, int c);
-
-
 
 #endif

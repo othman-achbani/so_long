@@ -16,13 +16,13 @@ static void	print_map(t_map *map, int x, int y)
 {
 	char	t;
 
-	t = map->tilesmap[y / PXL ][x / PXL];
+	t = map->tilesmap[y / PXL][x / PXL];
 	if (t != '0' && t != '1' && t != 'C' && t != 'E' && t != 'P' && t)
 		ft_map_error(map, NO_MAP);
-	if (t == 'E' || t == 'P'|| t == '0' || t == 'C')
+	if (t == 'E' || t == 'P' || t == '0' || t == 'C')
 		mlx_put_image_to_window(map->mlx, map->win, map->floor, x, y);
 	if (t == 'C')
-		mlx_put_image_to_window(map->mlx, map->win, map->coin, x , y + 2);
+		mlx_put_image_to_window(map->mlx, map->win, map->coin, x, y + 2);
 	if (t == 'E')
 		mlx_put_image_to_window(map->mlx, map->win, map->door, x, y);
 	if (t == 'P')

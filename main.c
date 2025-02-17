@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-void	map_checker(t_map *map , char *filename)
+void	map_checker(t_map *map, char *filename)
 {
 	map->y = 0;
 	map->counter = 0;
@@ -28,10 +28,10 @@ void	map_checker(t_map *map , char *filename)
 int	ft_close(t_map *map)
 {
 	ft_map_error(map, WINNER);
-	return(0);
+	return (0);
 }
 
-int main (int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_map	map;
 
@@ -49,4 +49,4 @@ int main (int ac, char **av)
 	}
 	else
 		ft_putstr_fd("\033[31mError\n\033[0m", 2);
-}	
+}

@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:19:11 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/10 16:07:38 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/17 14:44:10 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ void	find_player(t_map *map)
 {
 	map->pos_x = 0;
 	map->pos_y = 0;
-
-	while(map->pos_y < map->y)
+	while (map->pos_y < map->y)
 	{
 		map->pos_x = 0;
 		while (map->pos_x < map->x)
@@ -26,6 +25,6 @@ void	find_player(t_map *map)
 				return ;
 			map->pos_x++;
 		}
-	map->pos_y++;
+		map->pos_y++;
 	}
 }

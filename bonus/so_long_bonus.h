@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:04:59 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/16 22:44:55 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/17 12:41:33 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_BONUS_H
 
 # include "../libft/libft.h"
-# include "../minilibx-linux/mlx.h"
+# include "mlx.h"
 # include <fcntl.h>
 # include <stdio.h>
 
