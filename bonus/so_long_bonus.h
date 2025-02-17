@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:04:59 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/15 23:08:02 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/16 22:44:55 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,9 +107,13 @@ typedef struct s_map
 	int		direction;
 	int		enemy_mv;
 	int		enemy_nbr;
+	void	*shot_lft;
 	t_enemy	*enemy_pos;
+	int		shot_count;
 }			t_map;
 
+void		remove_enemy(t_map *map, int x, int y);
+int			dropfire_lft(t_map *map, int x, int y);
 void		initialized(t_map *map);
 void 		move_enemy_left(t_map *map, t_enemy **enemy);
 void 		draw_enemy_position(t_map *map, int x, int y);
@@ -123,7 +127,7 @@ void		player_left_image(t_map *map);
 void		enemy_counter(t_map *map);
 void		destroyer_dir(t_map *map);
 void		attack1(t_map *map);
-void		print_moves(int num);
+void		print_moves(int num, t_map *map);
 void		animation_right(int x , int y , t_map *map);
 void		animation_down(int x , int y , t_map *map);
 void		animation_up(int x , int y , t_map *map);

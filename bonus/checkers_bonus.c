@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:13:10 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/14 16:29:01 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/16 13:24:12 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void	content_counter(t_map *map)
 	}
 	if (map->e != 1 || p != 1 || map->c == 0)
 		ft_map_error(map, NO_MAP);
+	map->shot_count = map->c;
 }
 
 void	check_wall(t_map *map)

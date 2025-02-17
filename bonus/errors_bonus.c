@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 12:23:20 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/15 23:02:48 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/16 19:24:45 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ void	destroyer_bonus(t_map *map)
 		mlx_destroy_image(map->mlx, map->attack1_3);
 	if (map->shot)
 		mlx_destroy_image(map->mlx, map->shot);
+	if (map->shot_anim)
+		mlx_destroy_image(map->mlx, map->shot_anim);
+	if (map->shot_lft)
+		mlx_destroy_image(map->mlx, map->shot_lft);
 	destroyer_dir(map);
 }
 

@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:59:16 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/14 21:37:48 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/16 22:46:04 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	move_up(t_map *map)
 	{
 		if (map->tilesmap[y - 1][x] == 'E' && (map->c != 0 || map->exit == 1))
 			return ;
-		print_moves(++map->counter);
+		print_moves(++map->counter, map);
 		animation_up(x, y,map);
 		mlx_put_image_to_window(map->mlx, map->win,\
 map->floor, x * PXL , y * PXL);
@@ -73,7 +73,7 @@ void	move_right(t_map *map)
 	{
 		if (map->tilesmap[y][x + 1] == 'E' && (map->c != 0 || map->exit == 1))
 			return ;
-		print_moves(++map->counter);
+		print_moves(++map->counter, map);
 		mlx_put_image_to_window(map->mlx, map->win,\
 map->floor, x * PXL , y * PXL);
 		map->tilesmap[y][x] = '0';
@@ -98,7 +98,7 @@ void	move_left(t_map *map)
 	{
 		if (map->tilesmap[y][x - 1] == 'E' && (map->c != 0 || map->exit == 1))
 			return ;
-		print_moves(++map->counter);
+		print_moves(++map->counter, map);
 		animation_left(x, y, map);
 		mlx_put_image_to_window(map->mlx, map->win,\
 map->floor, x * PXL , y * PXL);
@@ -124,7 +124,7 @@ void	move_down(t_map *map)
 	{
 		if (map->tilesmap[y + 1][x] == 'E' && (map->c != 0 || map->exit == 1))
 			return ;
-		print_moves(++map->counter);
+		print_moves(++map->counter, map);
 		animation_down(x, y, map);
 		mlx_put_image_to_window(map->mlx, map->win,\
 map->floor, x * PXL , y * PXL);

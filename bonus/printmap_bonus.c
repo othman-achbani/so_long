@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 20:20:20 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/14 21:15:14 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/17 11:17:13 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,7 @@ void	pass_the_map(t_map *map, int door)
 			print_map(map, x * PXL, y * PXL, door);
 		y++;
 	}
+	mlx_string_put(map->mlx, map->win, PXL + 20 , 32 , 0xffffff, "MOVES:");
+	mlx_string_put(map->mlx, map->win, PXL*2 , 32 , 0x00ff00, "0");
 	find_player(map);
 }

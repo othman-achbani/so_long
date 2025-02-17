@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 21:00:31 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/15 23:11:18 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/16 19:23:25 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ void	get_enemy_image(t_map *map)
 		ft_map_error(map, 1);
 	map->shot_anim = mlx_xpm_file_to_image(map->mlx, "../utils_xpm/shot.xpm", &px, &px);
 	if (!map->shot_anim)
+		ft_map_error(map, 1);
+	map->shot_lft = mlx_xpm_file_to_image(map->mlx, "../utils_xpm/shot_lft.xpm", &px, &px);
+	if (!map->shot_lft)
 		ft_map_error(map, 1);
 	
 }

@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:19:11 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/16 00:06:06 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/16 20:41:38 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,8 @@ static void	check_add(t_map *map , int i)
 	}
 	else
 	{
-		if (map->tilesmap[enemy->y][enemy->x - 1 ] == '0' \
-|| map->tilesmap[enemy->y][enemy->x - 1 ] == 'P')
+		if (map->tilesmap[enemy->y][enemy->x - 1] == '0' \
+|| map->tilesmap[enemy->y][enemy->x - 1] == 'P')
 			enemy->x -= for_normmines_(map, enemy->x, enemy->y);
 		else
 			enemy->direction = 1;
@@ -100,7 +100,7 @@ int	move_enemy(t_map *map)
     int i;
 
     frame_counter++;
-    if (frame_counter % 600 == 0) // Update enemies every 10 frames
+    if (frame_counter % 4000 == 0)
     {
         i = -1;
         while (++i < map->enemy_nbr)
