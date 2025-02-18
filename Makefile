@@ -2,7 +2,7 @@ NAME = so_long
 BONUS_NAME = so_long_bonus
 
 # Source files
-SRCS =animation.c checkers.c errors.c \
+SRCS =	animation.c checkers.c errors.c \
        file_to_image.c main.c movement.c \
        moves.c player_info.c mandatory/printmap.c
 

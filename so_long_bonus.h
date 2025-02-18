@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 11:04:59 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/18 00:12:07 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/18 18:21:44 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ void		animation_left(int x, int y, t_map *map);
 void		check_valid_path(t_map *map);
 void		check_wall(t_map *map);
 void		destroyer(t_map *map);
-void		check_file(t_map *map);
+void		check_file(char *filename);
 int			quit(int keycode, t_map *map);
 void		get_image(t_map *map);
 void		pass_the_map(t_map *map, int door);

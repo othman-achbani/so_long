@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:13:10 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/18 15:08:14 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/18 18:01:53 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,13 @@ void	check_file(t_map *map)
 {
 	size_t	len;
 	int		cmp;
-	// char	**parse;
+	char	*last_slash;
 
+	last_slash = ft_strrchr(map->filename, '/');
+	printf("%s this is the file name\n", last_slash);
+	if (last_slash)
+		map->filename = last_slash + 1;
+	printf("%s this the filename now\n", map->filename);
 	len = ft_strlen(map->filename);
 	if (len < 5)
 	{
@@ -25,7 +30,6 @@ void	check_file(t_map *map)
 		 .ber\n\033[0m", 2);
 		exit(EXIT_FAILURE);
 	}
-	// parse = ft_split(map->filename, '/');	
 	cmp = ft_strncmp(map->filename + (len - 4), ".ber", 4);
 	if (cmp != 0)
 	{

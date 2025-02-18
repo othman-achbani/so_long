@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 15:45:31 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/17 23:44:50 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/18 18:17:56 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	map_checker(t_map *map, char *filename)
 	map->y = 0;
 	map->counter = 0;
 	map->filename = filename;
-	check_file(map);
+	check_file(filename);
 	get_tilesmap(map);
 	check_lenmap(map);
 	check_wall(map);
