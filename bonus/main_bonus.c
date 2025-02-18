@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 15:45:31 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/17 22:43:58 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/17 23:44:50 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ int	ft_close(t_map *map)
 int	main(int ac, char **av)
 {
 	t_map	map;
-	int		width;
-	int		height;
 
 	map = (t_map){0};
 	if (ac == 2)
