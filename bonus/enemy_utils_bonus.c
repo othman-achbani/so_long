@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 16:58:24 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/17 16:30:17 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/18 15:40:30 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	dropfire_lft(t_map *map, int x, int y)
 	if (map->tilesmap[y][x + 1] != 'P' && map->tilesmap[y][x + 1] != 'C')
 		mlx_put_image_to_window(map->mlx, map->win, map->floor,
 			(x + 1) * PXL, y * PXL);
-	while (i++ < 4000)
+	while (i++ < 8000)
 		if (map->tilesmap[y][x] != '1' && map->tilesmap[y][x] != 'E'
 			&& map->tilesmap[y][x] != 'C')
 			mlx_put_image_to_window(map->mlx, map->win, map->shot_lft, x * PXL,

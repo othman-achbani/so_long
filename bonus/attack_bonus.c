@@ -6,7 +6,7 @@
 /*   By: oachbani <oachbani@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 16:49:39 by oachbani          #+#    #+#             */
-/*   Updated: 2025/02/17 16:28:04 by oachbani         ###   ########.fr       */
+/*   Updated: 2025/02/18 15:39:46 by oachbani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ void	attack1(t_map *map)
 		attack_right(map);
 	while (1)
 	{
-		if (i++ % 5000 == 0)
+		if (i++ % 100000 == 0)
 		{
 			if (map->direction == RIGHT)
 				if (!dropfire(map, ++x, y))
